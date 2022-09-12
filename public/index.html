@@ -22,9 +22,30 @@
         padding: 40px;
         font-size: 20px;
       }
+
+      #hello {
+        user-select: none;
+        cursor: pointer;
+        padding-bottom: 10px;
+      }
+
+      #message {
+        color: #999;
+      }
     </style>
   </head>
   <body>
-    <main>Hello</main>
+    <main>
+      <div id="hello">Hello</div>
+      <div id="message"></div>
+    </main>
+
+    <script>
+      document.getElementById("hello").addEventListener("click", async () => {
+        const message = await (await fetch("/api")).text();
+        console.log({ message });
+        document.getElementById("message").textContent = message || "";
+      });
+    </script>
   </body>
 </html>

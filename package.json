@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:api": "nodemon dev.ts",
-    "dev:serve": "serve public"
+    "dev": "nodemon dev.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +16,6 @@
     "@types/express": "^4.17.13",
     "@types/node": "^18.7.17",
     "nodemon": "^2.0.19",
-    "serve": "^14.0.1",
     "ts-node": "^10.9.1"
   }
 }
