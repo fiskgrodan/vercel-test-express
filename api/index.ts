@@ -1,9 +1,11 @@
 import express from "express";
+import { format } from "date-fns";
 
 const app = express();
 
 app.get("/api", (request, response) => {
-  response.send("Hello World!");
+  const now = format(new Date(), "yyyy-MM-dd");
+  response.send(`Hello World! ${now}`);
 });
 
 export default app;
