@@ -20,31 +20,41 @@
 
       main {
         padding: 40px;
-        font-size: 20px;
+        font-size: 40px;
       }
 
       #hello {
         user-select: none;
         cursor: pointer;
-        padding-bottom: 10px;
+        padding-bottom: 30px;
+      }
+
+      .dark {
+        color: #999;
       }
 
       #message {
-        color: #999;
+        padding-bottom: 10px;
+        font-size: 30px;
+      }
+
+      #now {
+        font-size: 20px;
       }
     </style>
   </head>
   <body>
     <main>
       <div id="hello">Hello</div>
-      <div id="message"></div>
+      <div id="message" class="dark"></div>
+      <div id="now" class="dark"></div>
     </main>
 
     <script>
       document.getElementById("hello").addEventListener("click", async () => {
-        const message = await (await fetch("/api")).text();
-        console.log({ message });
+        const { message, now } = await (await fetch("/api")).json();
         document.getElementById("message").textContent = message || "";
+        document.getElementById("now").textContent = now || "";
       });
     </script>
   </body>
